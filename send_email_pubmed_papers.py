@@ -12,7 +12,7 @@ import requests
 from bs4 import BeautifulSoup as bs
 
 term = '((AAV) OR (rAAV)) NOT (ANCA)' #设置文献检索词
-reldate = 7 #设定只检索最近 7 天发表的文献
+reldate = 2 #设定只检索最近 7 天发表的文献
 
 # 需要在 Settings → Secrets → Dependabot → New repository secret 设置邮箱服务器信息
 try:
@@ -226,6 +226,8 @@ def send_email(file_name):
     #添加一个txt文本附件
     with open(file_name,'rb')as h:
         content2 = h.read()
+        print(content2)
+
     #设置txt参数
     part2 = MIMEText(content2,'plain','utf-8')
     #附件设置内容类型，方便起见，设置为二进制流
