@@ -17,10 +17,15 @@ reldate = 2 #设定只检索最近 7 天发表的文献
 # 需要在 Settings → Secrets → Dependabot → New repository secret 设置邮箱服务器信息
 try:
     mail_host = 'smtp.163.com'
-    mail_user = os.getenv('MAIL_USER').strip()
-    mail_pass = os.getenv('MAIL_PASS').strip()
-    sender = os.getenv('SEND_MIAL').strip()
-    receivers = [os.getenv('RECEIVE_MIAL').strip()]
+    mail_host = 'smtp.163.com'
+    mail_user = 'guominjunl'
+    mail_pass = 'IBCEKRHPKLJITQMA'
+    sender = 'guominjunl@163.com' 
+    receivers = ['mjguo@nggtbio.com.cn'] 
+#     mail_user = os.getenv('MAIL_USER').strip()
+#     mail_pass = os.getenv('MAIL_PASS').strip()
+#     sender = os.getenv('SEND_MIAL').strip()
+#     receivers = [os.getenv('RECEIVE_MIAL').strip()]
 except:
     print('未设置邮箱信息')
 
