@@ -16,13 +16,13 @@ reldate = 7 #设定只检索最近 7 天发表的文献
 
 # 需要在 Settings → Secrets → Dependabot → New repository secret 设置邮箱服务器信息
 try:
-  mail_host = 'smtp.163.com'
-  mail_user = os.getenv('MAIL_USER').strip()
-  mail_pass = os.getenv('MAIL_PASS').strip()
-  sender = os.getenv('SEND_MIAL').strip()
-  receivers = [os.getenv('RECEIVE_MIAL')
+    mail_host = 'smtp.163.com'
+    mail_user = os.getenv('MAIL_USER').strip()
+    mail_pass = os.getenv('MAIL_PASS').strip()
+    sender = os.getenv('SEND_MIAL').strip()
+    receivers = [os.getenv('RECEIVE_MIAL')
 except:
-  print('未设置邮箱信息')
+    print('未设置邮箱信息')
 
 def get_pmidl(term, reldate):
     '''根据检索词获取文献的 pmid，返回 n 个文献的 list'''
