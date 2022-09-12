@@ -23,6 +23,8 @@ try:
     receivers = [os.environ.get('RECEIVE_MAIL')]
     print(type(mail_user))
     print(mail_user == 'guominjunl')
+    print(os.getenv('MAIL_PASS') == 'guominjunl')
+    print(mail_user == os.getenv('MAIL_PASS'))
 except:
     print('未设置邮箱信息')
 
