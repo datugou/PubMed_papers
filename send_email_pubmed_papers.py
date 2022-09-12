@@ -231,7 +231,7 @@ def send_email(file_name):
     #附件设置内容类型，方便起见，设置为二进制流
     part2['Content-Type'] = 'application/octet-stream'
     #设置附件头，添加文件名
-    part2['Content-Disposition'] = 'attachment;filename="%s"'%(fn.split('\\')[-1])
+    part2['Content-Disposition'] = 'attachment;filename="%s"'%(file_name.split('\\')[-1])
 
     message.attach(part2)
 
