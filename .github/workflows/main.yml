@@ -27,10 +27,10 @@ jobs:
         
       - name: 'Working'
         env:
-          MAIL_USER: ${{secrets.MAIL_USER}}
-          MAIL_PASS: ${{secrets.MAIL_PASS}}
-          SEND_MAIL: ${{secrets.SEND_MAIL}}
-          RECEIVE_MAIL: ${{secrets.RECEIVE_MAIL}}
+          MAIL_USER: ${{ secrets.MAIL_USER }}
+          MAIL_PASS: ${{ secrets.MAIL_PASS }}
+          SEND_MAIL: ${{ secrets.SEND_MAIL }}
+          RECEIVE_MAIL: ${{ secrets.RECEIVE_MAIL }}
         run: python send_email_pubmed_papers.py
 
 
