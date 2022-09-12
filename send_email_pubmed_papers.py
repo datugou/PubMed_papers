@@ -249,6 +249,10 @@ def send_email(file_name):
 
         
 def main():
+    mail_user = 'guominjunl'
+    mail_pass = 'IBCEKRHPKLJITQMA'
+    sender = 'guominjunl@163.com' 
+    receivers = ['mjguo@nggtbio.com.cn'] 
     idl = get_pmidl(term, reldate)
     table = get_paper_info_by_pmidL(idl)
     print('文献列表已获取')
