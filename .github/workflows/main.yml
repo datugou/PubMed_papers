@@ -1,0 +1,58 @@
+# This is a basic workflow to help you get started with Actions
+
+name: CI
+
+on:
+  push:
+    branches: 
+      - main
+  schedule:
+    - cron: '0 0 * * *'
+
+jobs:
+  daily_check_in:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: 'Set up Python'
+        uses: actions/setup-python@v1
+        with:
+          python-version: 3.7
+      - name: 'Install requirements'
+        run: pip install -r ./requirements.txt
+        
+      - name: Install ChromeDriver
+        run: |
+          CHROME_VERSION=$(google-chrome --version | cut -f 3 -d ' ' | cut -d '.' -f 1) \
+            && CHROMEDRIVER_RELEASE=$(curl --location --fail --retry 3 http://chromedriver.storage.googleapis.com/LATEST_RELEASE_${CHROME_VERSION}) \
+            && curl --silent --show-error --location --fail --retry 3 --output /tmp/chromedriver_linux64.zip "http://chromedriver.storage.googleapis.com/$CHROMEDRIVER_RELEASE/chromedriver_linux64.zip" \
+            && cd /tmp \
+            && unzip chromedriver_linux64.zip \
+            && rm -rf chromedriver_linux64.zip \
+            && sudo mv chromedriver /usr/local/bin/chromedriver \
+            && sudo chmod +x /usr/local/bin/chromedriver \
+            && chromedriver --version
+        
+        
+        
+      - name: 'Working'
+        run: python job51.py
+
+
+
+      - name: Commit files
+        run: |
+          git config --global user.email "953274732@qq.com"
+          git config --global user.name "datugou"
+          git commit -m "update" -a || exit 0
+      - name: Push changes
+        env:
+          GITHUB_LOGIN: datugou
+          GITHUB_PERSONAL_TOKEN: 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
+          
+        run: |
+          git push https://$GITHUB_LOGIN:$GITHUB_PERSONAL_TOKEN@github.com/$GITHUB_REPOSITORY.git
+          
+      - name: done
+        run: echo 'done'
