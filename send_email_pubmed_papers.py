@@ -22,6 +22,7 @@ try:
     sender = os.environ.get('SEND_MAIL')
     receivers = [os.environ.get('RECEIVE_MAIL')]
     print(type(mail_user))
+    print(mail_user == 'guominjunl')
 except:
     print('未设置邮箱信息')
 
