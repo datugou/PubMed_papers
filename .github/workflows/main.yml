@@ -29,8 +29,8 @@ jobs:
         env:
           MAIL_USER: ${{secrets.MAIL_USER}}
           MAIL_PASS: ${{secrets.MAIL_PASS}}
-          SEND_MIAL: ${{secrets.SEND_MIAL}}
-          RECEIVE_MIAL: ${{secrets.RECEIVE_MIAL}}
+          SEND_MAIL: ${{secrets.SEND_MAIL}}
+          RECEIVE_MAIL: ${{secrets.RECEIVE_MAIL}}
         run: python send_email_pubmed_papers.py
 
 
