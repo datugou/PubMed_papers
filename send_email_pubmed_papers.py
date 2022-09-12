@@ -12,7 +12,7 @@ import requests
 from bs4 import BeautifulSoup as bs
 
 term = '((AAV) OR (rAAV)) NOT (ANCA)' #设置文献检索词
-reldate = 2 #设定只检索最近 7 天发表的文献
+reldate = 7 #设定只检索最近 7 天发表的文献
 
 # 需要在 Settings → Secrets → Dependabot → New repository secret 设置邮箱服务器信息
 try:
@@ -21,10 +21,6 @@ try:
     mail_pass = os.environ.get('MAIL_PASS')
     sender = os.environ.get('SEND_MAIL')
     receivers = [os.environ.get('RECEIVE_MAIL')]
-    print(type(mail_user))
-    print(mail_user == 'guominjunl')
-    print(os.getenv('MAIL_PASS') == 'guominjunl')
-    print(mail_user == os.getenv('MAIL_PASS'))
 except:
     print('未设置邮箱信息')
 
