@@ -31,7 +31,7 @@ def get_pmidl(term, reldate):
     url_ncbi_home = 'https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi'
     db = 'pubmed'
     
-    retmax = 99999 #搜索结果返回的最大数
+    retmax = 999999 #搜索结果返回的最大数
 
     # 获取检索结果的pmid list
     url = url_ncbi_home + '?db=%s&term=%s&reldate=%d&retmax=%d'%(db, term, reldate, retmax)
