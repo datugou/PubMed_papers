@@ -1,4 +1,4 @@
-import random, json, re, time
+import random, json, re, time, os
 import xmltodict
 
 import pandas as pd
@@ -20,7 +20,7 @@ try:
     mail_user = os.getenv('MAIL_USER').strip()
     mail_pass = os.getenv('MAIL_PASS').strip()
     sender = os.getenv('SEND_MIAL').strip()
-    receivers = [os.getenv('RECEIVE_MIAL')]
+    receivers = [os.getenv('RECEIVE_MIAL').strip()]
 except:
     print('未设置邮箱信息')
 
