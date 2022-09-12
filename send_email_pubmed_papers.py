@@ -226,7 +226,7 @@ def send_email(file_name):
     #添加一个txt文本附件
     with open(file_name,'rb')as h:
         content2 = h.read()
-        print(content2)
+
 
     #设置txt参数
     part2 = MIMEText(content2,'plain','utf-8')
@@ -238,6 +238,7 @@ def send_email(file_name):
     message.attach(part2)
 
     #登录并发送
+    print(mail_user, mail_pass)
     try:
         smtpObj = smtplib.SMTP()
         smtpObj.connect(mail_host,25)
@@ -251,10 +252,6 @@ def send_email(file_name):
 
         
 def main():
-    mail_user = 'guominjunl'
-    mail_pass = 'IBCEKRHPKLJITQMA'
-    sender = 'guominjunl@163.com' 
-    receivers = ['mjguo@nggtbio.com.cn'] 
     idl = get_pmidl(term, reldate)
     table = get_paper_info_by_pmidL(idl)
     print('文献列表已获取')
