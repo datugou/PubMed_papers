@@ -12,7 +12,7 @@ import requests
 from bs4 import BeautifulSoup as bs
 
 term = '((AAV) OR (rAAV)) NOT (ANCA)' #设置文献检索词
-reldate = 7 #设定只检索最近 7 天发表的文献
+reldate = 9 #设定只检索最近 9 天发表的文献
 
 # 需要在 Settings → Secrets → Dependabot → New repository secret 设置邮箱服务器信息
 try:
